@@ -2,6 +2,7 @@
 This project was created to develop self-coding and statistical skills in the field of machine learning using Java. I learned statistical methods for machine learning in a course I took at university, and I wanted to improve myself by applying these fundamentals to Java. Even with artificial intelligence and standardized libraries, in a scenario where the internet and everything else were to disappear one day, having the ability to build these things from scratch is crucial.
 
 User Guidance;
+If you want to examine my code you can download rar arcihve. Otherway you can download .jar file to directly try it.
 
 First implement required imports import jar file to your class path
 then import library.
