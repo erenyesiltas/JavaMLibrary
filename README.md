@@ -36,7 +36,7 @@ reg.R2Score(); return double value for r score
 
 
 
-##Example code;
+## Example code;
 
 package deneme;
 import java.util.ArrayList;
