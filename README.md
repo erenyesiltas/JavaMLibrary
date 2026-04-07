@@ -152,3 +152,15 @@ public class App
         
     }
 }
+
+
+## RIDGE REGRESSION
+The penalty matrix was created respect to X transpose X matrix and joint original matrix. Now you can train your model with more accuracy rate.
+RidgeRegression ridge = new RidgeRegression(2,1);
+        ridge.fitModel(X_tr, y_tr, 0.70);
+        System.out.println(ridge.predict(0.4)); 
+        System.err.println(ridge.MSE()); 
+        System.err.println(ridge.MAE());
+        System.err.println(ridge.RMSE());
+        System.out.println(greenCode + String.format("%.8f", ridge.R2Score()) + defaultCode);
+        System.out.println(greenCode + String.format("%.8f", ridge.R2ScoreVal()) + defaultCode);
