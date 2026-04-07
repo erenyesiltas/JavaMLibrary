@@ -156,7 +156,64 @@ public class App
 
 ## RIDGE REGRESSION
 The penalty matrix was created respect to X transpose X matrix and joint original matrix. Now you can train your model with more accuracy rate.
-RidgeRegression ridge = new RidgeRegression(2,1);
+package com.derivasoftware.eduML;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import com.derivasoftware.eduML.LinearRegression;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+       
+        LinearRegression reg = new LinearRegression();
+        ArrayList<Double> X_tr = new ArrayList<>(Arrays.asList(
+        	    -1.282, 0.425, 1.953, 2.625, -1.426, -1.311, 2.823, 2.346, 1.210, -2.631, 
+        	    2.794, 1.449, 0.490, 2.409, 0.072, -1.602, -0.761, 2.882, 0.853, 1.887,
+        	    -0.865, -1.321, 1.607, -2.705, -1.580, -2.121, 0.893, -2.742, 1.191, 1.386,
+        	    2.779, -2.625, -0.425, -0.387, -0.751, 1.265, 0.142, -0.335, 0.893, -2.992,
+        	    1.321, -2.277, -2.042, -2.671, 2.334, -1.933, -0.029, 0.826, 0.123, -0.572,
+        	    -2.851, 1.910, -2.193, 2.986, 0.891, -1.145, 0.114, -1.282, -1.446, -2.315,
+        	    1.411, 0.664, 1.661, -2.914, -2.843, 2.219, -2.502, -0.836, -1.794, -1.070,
+        	    0.766, 2.696, -2.243, -0.763, 1.668, 0.537, 0.166, -0.633, 1.541, 1.584,
+        	    -0.735, 1.806, -1.891, 2.735, 0.785, -2.159, 0.616, -0.743, 1.863, -0.066,
+        	    -2.198, 0.103, -0.483, 0.810, 0.033, 2.055, 0.864, -1.586, 1.558, 0.512
+        	));
+        
+        ArrayList<Double> y_tr = new ArrayList<>(Arrays.asList(
+        	    1.010, 2.281, 4.415, 10.563, 0.627, -1.068, 9.011, 8.508, 3.713, 1.090,
+        	    8.632, 5.135, 2.513, 8.962, 1.860, -0.192, 1.528, 10.724, 2.236, 7.088,
+        	    1.460, 0.679, 6.072, -0.294, 1.411, 1.886, 4.114, 2.525, 4.251, 5.194,
+        	    9.883, 1.367, 0.446, 1.560, 1.474, 5.058, 2.762, 0.954, 3.986, 2.775,
+        	    4.422, -0.281, 1.705, 2.175, 7.051, 0.303, 1.267, 3.998, 2.184, 1.654,
+        	    3.862, 9.121, 1.187, 11.000, 3.666, 0.702, 2.914, 2.107, 0.285, 1.504,
+        	    5.931, 4.525, 4.632, 2.483, 2.901, 6.561, 2.087, -0.978, -0.067, -0.547,
+        	    3.665, 9.118, 0.201, 1.797, 7.276, 3.668, 2.788, 0.672, 3.505, 6.677,
+        	    1.830, 5.529, 2.506, 9.729, 2.530, 3.088, 2.735, 1.858, 5.181, 2.026,
+        	    0.837, 2.903, 2.995, 3.127, 1.510, 8.686, 3.901, 0.786, 5.447, 4.356
+        	));
+        reg.fitModel(X_tr, y_tr,0.7);
+        System.out.println(reg.predict(0.2)); 
+        System.err.println(reg.MAE()); 
+        System.err.println(reg.MSE()); 
+        System.err.println(reg.RMSE()); 
+     
+        String greenCode = "\u001B[32m";
+        String defaultCode = "\u001B[0m";
+
+        
+        System.out.println(greenCode + String.format("%.8f", reg.R2Score()) + defaultCode);
+        System.out.println(greenCode + String.format("%.8f", reg.R2ScoreVal()) + defaultCode);
+        PolynomialRegression polReg = new PolynomialRegression(2);
+        polReg.fitModel(X_tr, y_tr, 0.80);
+        System.out.println(polReg.predict(0.4)); 
+        System.err.println(polReg.MSE()); 
+        System.err.println(polReg.MAE());
+        System.err.println(polReg.RMSE());
+        System.out.println(greenCode + String.format("%.8f", polReg.R2Score()) + defaultCode);
+        System.out.println(greenCode + String.format("%.8f", polReg.R2ScoreVal()) + defaultCode);
+        RidgeRegression ridge = new RidgeRegression(2,1);
         ridge.fitModel(X_tr, y_tr, 0.70);
         System.out.println(ridge.predict(0.4)); 
         System.err.println(ridge.MSE()); 
@@ -164,3 +221,5 @@ RidgeRegression ridge = new RidgeRegression(2,1);
         System.err.println(ridge.RMSE());
         System.out.println(greenCode + String.format("%.8f", ridge.R2Score()) + defaultCode);
         System.out.println(greenCode + String.format("%.8f", ridge.R2ScoreVal()) + defaultCode);
+    }
+}
